@@ -53,7 +53,7 @@ These are explicit limits, not completed acceptance claims:
 - Google free/busy can flag the existing event when rescheduling into its own time slot; the interface offers explicit conflict acceptance. Cross-system Calendar creates are not distributed transactions, so a remote success followed by a failed local write requires reconciliation.
 - Failed payment-request creation is retained for history. There is no request-creation retry button on that failed request; create a fresh request from the opportunity after fixing configuration. Stripe's own Checkout/event retries handle confirmation delivery.
 - Authentication includes recognized salted PBKDF2-SHA256 (100,000 iterations for Worker Web Crypto compatibility). No password-reset/email-verification flow was specified or added. Security review and rate-limit tuning are still needed before exposing a public production service.
-- Accessibility markup, responsive layouts, focus styles and labeled forms are implemented, but a full browser accessibility audit and focus trapping for dialogs remain outstanding.
+- Accessibility markup, responsive layouts, focus styles and labeled forms are implemented, but a full browser accessibility audit and focus handling for the customer drawer remain outstanding.
 - No live provider operations, externally reachable intake, hosted scheduling SLA, mobile browser layout or third-party consent was verified in this session.
 
 The application is a working, persistent implementation for local evaluation with a private hosted review surface. The limits above mean it should not yet be represented as fully accepted or production hardened.
