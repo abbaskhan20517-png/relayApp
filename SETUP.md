@@ -4,8 +4,7 @@ Requires Node.js 24 (the local SQLite adapter uses `node:sqlite`).
 
 ```powershell
 npm ci
-Copy-Item .env.example .env
-# Replace SECRET_KEY and WORKER_TOKEN with separate cryptographically random values.
+npm run setup
 npm run local
 ```
 
@@ -105,3 +104,11 @@ npm run build
 8. Complete the live provider steps above. These require your accounts, secrets, phones and Google consent; fixture tests do not replace them.
 
 See ACCEPTANCE.md for verified checks and outstanding limitations.
+
+## WhatsApp templates and reply windows
+
+Relay checks for an inbound WhatsApp message in the preceding 24 hours before sending a free-form WhatsApp reply. SMS is exempt. Older records incorrectly labeled WhatsApp are not automatically rewritten.
+
+In Conversations, choose **Template**, or select **Approved WhatsApp template** in the message dialog. Copy an approved Content SID from Twilio Content Template Builder (HX followed by 32 hexadecimal characters). Enter variables as a JSON object such as `{"1":"Taylor","2":"Tuesday"}`. Relay sends ContentSid and ContentVariables; Twilio remains authoritative for approval, recipient eligibility and delivery. Templates are referenced manually; template catalog synchronization and previews are not implemented.
+
+Failed template retries preserve the original template and variables. Text retries recheck the reply window. Existing opt-out restrictions apply to both. These paths have mocked-provider coverage, not live-delivery acceptance.
