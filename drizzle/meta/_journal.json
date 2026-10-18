@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1792302019614,
+      "tag": "0000_wet_namorita",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1792302333842,
+      "tag": "0001_amusing_kate_bishop",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1792302838731,
+      "tag": "0002_reference_integrity",
+      "breakpoints": true
+    }
+  ]
+}
